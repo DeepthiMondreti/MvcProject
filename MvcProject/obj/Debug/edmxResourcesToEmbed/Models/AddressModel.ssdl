@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CommunityAssistModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="CommunityAssistModelStoreContainer">
+    <EntitySet Name="Donation" EntityType="CommunityAssistModel.Store.Donation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Person" EntityType="CommunityAssistModel.Store.Person" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__Donation__Person__5CD6CB2B" Association="CommunityAssistModel.Store.FK__Donation__Person__5CD6CB2B">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="Donation" EntitySet="Donation" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Donation">
+    <Key>
+      <PropertyRef Name="DonationKey" />
+    </Key>
+    <Property Name="DonationKey" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DonationDate" Type="datetime" Nullable="false" />
+    <Property Name="DonationAmount" Type="money" Nullable="false" />
+    <Property Name="PersonKey" Type="int" />
+    <Property Name="EmployeeKey" Type="int" />
+    <Property Name="DonationConfirmDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="PersonKey" />
+    </Key>
+    <Property Name="PersonKey" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PersonLastName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="PersonFirstName" Type="nvarchar" MaxLength="255" />
+    <Property Name="PersonUsername" Type="nvarchar" MaxLength="25" />
+    <Property Name="PersonPlainPassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="Personpasskey" Type="int" />
+    <Property Name="PersonEntryDate" Type="date" />
+    <Property Name="PersonUserPassword" Type="varbinary" MaxLength="500" />
+  </EntityType>
+  <Association Name="FK__Donation__Person__5CD6CB2B">
+    <End Role="Person" Type="CommunityAssistModel.Store.Person" Multiplicity="0..1" />
+    <End Role="Donation" Type="CommunityAssistModel.Store.Donation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PersonKey" />
+      </Principal>
+      <Dependent Role="Donation">
+        <PropertyRef Name="PersonKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

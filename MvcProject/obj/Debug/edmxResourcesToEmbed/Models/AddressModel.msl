@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CommunityAssistModelStoreContainer" CdmEntityContainer="CommunityAssistEntities">
+    <EntitySetMapping Name="Donations">
+      <EntityTypeMapping TypeName="CommunityAssistModel.Donation">
+        <MappingFragment StoreEntitySet="Donation">
+          <ScalarProperty Name="DonationKey" ColumnName="DonationKey" />
+          <ScalarProperty Name="DonationDate" ColumnName="DonationDate" />
+          <ScalarProperty Name="DonationAmount" ColumnName="DonationAmount" />
+          <ScalarProperty Name="PersonKey" ColumnName="PersonKey" />
+          <ScalarProperty Name="EmployeeKey" ColumnName="EmployeeKey" />
+          <ScalarProperty Name="DonationConfirmDate" ColumnName="DonationConfirmDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="CommunityAssistModel.Person">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="PersonKey" ColumnName="PersonKey" />
+          <ScalarProperty Name="PersonLastName" ColumnName="PersonLastName" />
+          <ScalarProperty Name="PersonFirstName" ColumnName="PersonFirstName" />
+          <ScalarProperty Name="PersonUsername" ColumnName="PersonUsername" />
+          <ScalarProperty Name="PersonPlainPassword" ColumnName="PersonPlainPassword" />
+          <ScalarProperty Name="Personpasskey" ColumnName="Personpasskey" />
+          <ScalarProperty Name="PersonEntryDate" ColumnName="PersonEntryDate" />
+          <ScalarProperty Name="PersonUserPassword" ColumnName="PersonUserPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
